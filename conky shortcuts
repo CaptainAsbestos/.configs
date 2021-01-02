@@ -1,0 +1,57 @@
+conky.config = {
+	alignment = 'bottom_left',
+	background = true,
+	cpu_avg_samples = 2,
+	double_buffer = true,
+	font = 'Hack:size=8',
+        draw_shades = false,
+        default_color = '93a1a1',
+        color2 = '586E75',
+	color3 = '859900',
+	gap_x = 25,
+	gap_y = 45,
+	minimum_width = 200,
+	no_buffers = true,
+	own_window = true,
+	own_window_type = 'override',
+	own_window_transparent = true,
+	update_interval = 2.0,
+	use_xft = true,
+}
+conky.text = [[
+${color2}drun ${color}$alignr meta d
+${color2}rofi ${color}$alignr meta space
+${color2}morc_menu ${color}$alignr meta z
+${color2}window overview ${color}$alignr meta return
+
+${color2}terminal ${color}$alignr meta ~
+${color2}chromium ${color}$alignr meta g
+${color2}incognito ${color}$alignr meta i
+${color2}files ${color}$alignr meta b
+${color2}bmenu ${color}$alignr meta ctrl b
+
+${color2}kill focused ${color}$alignr meta shift q
+${color2}toggle split direction ${color}$alignr meta q
+${color2}reload i3 ${color}$alignr meta r
+${color2}logout ${color}$alignr meta shift e
+${color2}switch to workspace 1-10 ${color}$alignr meta 1-0
+${color2}send to workspace 1-10 ${color}$alignr meta ctrl 1-0
+${color2}walk thru workspaces ${color}$alignr meta tab
+${color2}recent workspace ${color}$alignr meta backspace
+
+${color2}fullscreen ${color}$alignr meta shift f
+${color2}toggle floating ${color}$alignr meta shift space
+${color2}focus floating ${color}$alignr meta f
+${color2}resize ${color}$alignr meta r
+
+${color2}focus left ${color}$alignr meta j
+${color2}focus down ${color}$alignr meta k
+${color2}focus up ${color}$alignr meta l
+${color2}focus right ${color}$alignr meta ;
+${color2}move client ${color}$alignr meta shift jkl;
+${color2}tile mode ${color}$alignr meta e
+${color2}stacked mode ${color}$alignr meta s
+${color2}tabbed mode ${color}$alignr meta w
+
+${color2}help ${color}$alignr meta shift h
+]]
