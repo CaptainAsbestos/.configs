@@ -279,3 +279,9 @@ exec_always --no-startup-id /home/alexh/i3-alternating-layout-master/alternating
 # if you are looking for i3status, that's also in the home directory .config
 # if you are trying to get i3blocks working, that's in /etc as well
 # rofi themes are located at /usr/share/rofi/themes
+
+#Screenbrightness
+#get the xorg-xbacklight package
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+
