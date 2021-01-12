@@ -299,3 +299,6 @@ bindsym XF86KbdBrightnessDown exec brightnessctl -d smc::kbd_backlight s 10%-
 bindsym XF86KbdBrightnessUp exec brightnessctl -d smc::kbd_backlight s +10%
 bindsym Mod1+XF86KbdBrightnessDown exec brightnessctl -d smc::kbd_backlight s 2%-
 bindsym Mod1+XF86KbdBrightnessUp exec brightnessctl -d smc::kbd_backlight s +2%
+
+#scrot sends screenshots to Pictures directory, change the path at the end
+bindsym Print exec --no-startup-id scrot 'Screenshot-%e-%b-%y_%H:%M:%S.png' -e 'mv $f ~/Pictures/'
