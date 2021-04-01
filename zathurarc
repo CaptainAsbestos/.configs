@@ -1,0 +1,88 @@
+# Zathura configuration file
+# See man `man zathurarc'
+
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+#stop at page boundries
+set scroll-page-aware "true"
+#set smooth-scroll "true" ##deprecated
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+#zoom settings
+set zoom-min 10
+set guioptions "hvs"
+
+# solarized dark
+
+set font "hack 10"
+set default-bg "#002b36" #00
+set default-fg "#586e75" #01
+
+set statusbar-bg "#073642" #04
+set statusbar-fg "#93a1a1" #01
+set statusbar-h-padding 20
+set statusbar-v-padding 10
+
+set inputbar-bg "#073642" #00 currently not used
+set inputbar-fg "#859900" #02
+
+set notification-error-bg "#cb4b16" #08
+set notification-error-fg "#002b36" #00
+
+set notification-warning-bg "#dc322f" #08
+set notification-warning-fg "#002b36" #00
+
+set highlight-color "#b58900" #0A
+set highlight-active-color "#2aa198" #0D
+set highlight-transparency 0.33
+
+set completion-highlight-fg "#002b36" #02
+set completion-highlight-bg "#268bd2" #0C
+
+set completion-bg "#002b36" #02
+set completion-fg "#839496" #0C
+
+set notification-bg "#b58900" #0B
+set notification-fg "#002b36" #00
+
+##set tabbar-bg "#002b36"
+##set tabbar-fg "#586e75"
+##set tabbar-focus-bg "#073642"
+##set tabbar-focus-fg "#93a1a1"
+
+set page-padding 1
+set page-cache-size 15
+#set pages-per-row 2
+
+set render-loading 1
+set render-loading-bg "#073642"
+set render-loading-fg "#268bd2"
+
+set recolor "true"
+set recolor-lightcolor "#eee8d5" #00
+set recolor-darkcolor "#586e75" #06
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+
+set selection-clipboard clipboard
+
+set scroll-step 50
+
+unmap f
+map f toggle_fullscreen
+map [fullscreen] f toggle_fullscreen
+
+map j scroll left
+map k scroll down
+map l scroll up
+map ; scroll right
+
+map [fullscreen] j scroll left
+map [fullscreen] k scroll down
+map [fullscreen] l scroll up
+map [fullscreen] ; scroll right
