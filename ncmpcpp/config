@@ -1,0 +1,62 @@
+visualizer_data_source = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_in_stereo = "yes"
+visualizer_type = "spectrum"
+visualizer_look = "+|"
+
+mpd_music_dir = "~/Music"
+
+user_interface = "alternative"
+
+alternative_header_first_line_format = "♪ $(6)%t$(end)"
+alternative_header_second_line_format = " $b$(6)%a (%y)$(end)$/b "
+alternative_ui_separator_color = 14
+
+
+now_playing_prefix = "$b"
+now_playing_suffix = "$/b"
+song_list_format = "$(15)%t$(end)$R $(11)%A$(end) ($(cyan)%l$(end))"
+#song_list_format = {%a - }{%t}|{$8%f$9}$R{$3(%l)$9}
+song_columns_list_format = "(40)[6]{t|f} (25)[12]{a} (25)[12]{b} (5)[6]{l}"
+browser_playlist_prefix = "$(10) playlist $(end) "
+
+progressbar_color = 14
+progressbar_elapsed_color = 6
+progressbar_look = "━━━"
+song_status_format = " $(5)%a$(end) $4⟫$7⟫$0 $(5)%t$(end) $4⟫$7⟫$0  $(5)%b$(end)"
+#song_status_format = " %t - %a "
+
+
+mouse_support = "yes"
+header_visibility = "yes"
+header_text_scrolling = "yes"
+statusbar_visibility = "yes"
+statusbar_color = "5"
+playlist_display_mode = "columns" (classic/columns)
+#browser_display_mode = "colums"
+browser_display_mode = "classic"
+search_engine_display_mode = "columns"
+playlist_editor_display_mode = "columns"
+autocenter_mode = "yes"
+titles_visibility = "yes"
+enable_window_title = "yes"
+
+startup_screen = "visualizer"
+
+# Colors
+color1 = "12"
+color2 = "7"
+colors_enabled = "yes"
+state_line_color = "14"
+empty_tag_color = "2"
+volume_color = "5"
+state_flags_color = "5"
+main_window_color = "12"
+player_state_color = "5"
+statusbar_time_color = "5"
+
+window_border_color = "6"
+
+discard_colors_if_item_is_selected = "yes"
+
+external_editor = "micro"
