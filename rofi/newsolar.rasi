@@ -1,0 +1,24 @@
+base03:   rgba ( 0,   43,   54,   90 % );
+    base02:   rgba ( 7,   52,   66,   90 % );
+    base01:   rgba ( 88,  110,  117,  90 % );
+    base00:   rgba ( 101, 123,  131,  90 % );
+    base0:    rgba ( 131, 148,  150,  90 % );
+    base1:    rgba ( 147, 161,  161,  90 % );
+    base2:    rgba ( 238, 232,  213,  90 % );
+    base3:    rgba ( 253, 246,  227,  90 % );
+    yellow:   rgba ( 181, 137,  0,    100 % );
+    orange:   rgba ( 203, 75,   22,   100 % );
+    red:      rgba ( 220, 50,   47,   100 % );
+    magenta:  rgba ( 211, 54,   130,  100 % );
+    violet:   rgba ( 108, 113,  196,  100 % );
+    blue:     rgba ( 38,  139,  210,  100 % );
+    cyan:     rgba ( 42,  161,  152,  100 % );
+    green:    rgba ( 133, 153,  0,    100 % );
+    clear:    rgba ( 0,   0,    0,    0   % );
+
+    background-color:            @clear;
+    alternate-active-foreground: @base1;
+    active-foreground:           @yellow;
+    active-background:           @cyan;
+    selected-active-foreground:  @base03;
+    selected-active-background:  @yellow;
