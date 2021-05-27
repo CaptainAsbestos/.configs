@@ -1,0 +1,67 @@
+/* ~/.mozilla/firefox/ter1fprn.Default User/chrome/userChrome.css */
+
+panelview,  
+.panel-arrowcontent{ 
+  background:#002b36 !important;  
+  color: #839496 !important;
+}
+
+#TabsToolbar .tabbrowser-tab .tab-content {
+  font-family: Frutiger LT Std !important;
+  font-size: 12px !important;
+}
+
+#urlbar {
+  font-family: Hack !important;
+  color: #93a1a1 !important;
+  text-shadow: black 1px 1px 0px !important;
+  font-weight: normal !important;
+  font-size: 14px !important;
+  text-align: left !important;
+}
+
+/** userChrome.css
+ * Rounds the browser tabs in firefox
+ * toolkit.legacyUserProfileCustomizations.stylesheets must be true in about:config
+ * Drop this in ~/.mozilla/firefox/*.default/chrome/userChrome.css
+ */
+
+/* Remove colored line above each tab */
+.tabbrowser-tab .tab-line {
+   visibility: hidden;
+}
+
+/* Pointer tab cursor (lol!) */
+.tabbrowser-tab * {
+  cursor: pointer !important;
+}
+
+/* Curve the background tabs */
+.tabbrowser-tab,
+.tabbrowser-tab .tab-background {
+  border-top-left-radius: 0px !important;
+  border-top-right-radius: 0px !important;
+  background-image: linear-gradient(to top, #002b36 100%,#002b36 100%) !important;
+}
+
+.tab-background[selected="true"] {
+	 background-image: linear-gradient(to bottom, #002b36 0%,#2b535e 100%) !important;
+}
+
+/* Shorten / hide the vertical lines between background tabs */
+.tabbrowser-tab::before, .tabbrowser-tab::after {
+  display: none !important;
+  margin-top: 20px !important;
+  border: 2px solid #859900 !important;
+}
+
+/* Shade and outline the inactive tabs */
+.tabbrowser-tab .tab-background {
+  background-color: #002b36 !important;
+  border: 0px solid #073642 !important;
+}
+
+/* Highlight the selected tab */
+.tabbrowser-tab .tab-background[selected="true"] {
+  background-color: #073642 !important;
+}
