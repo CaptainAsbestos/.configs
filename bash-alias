@@ -1,0 +1,35 @@
+## Custom Bash Prompt
+PS1="\n\033[0;32m\][\u]\033[0;33m\] \w/ \n\[\033[0;32m\]\[\033[0;32m\] ╰─> \[\033[0m\]"
+
+alias gotop='gotop -c solarized '
+alias rngr='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR" '
+alias chown='chown --preserve-root '
+alias chmod='chmod --preserve-root '
+alias chgrp='chgrp --preserve-root '
+alias mv='mv -i '
+alias cp='cp -i '
+alias ln='ln -i '
+alias ..='cd .. && pwd && ls -G -F '
+alias 2.='cd ../.. && pwd && ls -G -F '
+alias 3.='cd ../../.. && pwd && ls -G -F '
+alias sudo='sudo '
+
+man() {
+	env \
+		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+		LESS_TERMCAP_md=$(printf "\e[1;31m") \
+		LESS_TERMCAP_me=$(printf "\e[0m") \
+		LESS_TERMCAP_se=$(printf "\e[0m") \
+		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+		LESS_TERMCAP_ue=$(printf "\e[0m") \
+		LESS_TERMCAP_us=$(printf "\e[1;32m") \
+		man "$@"
+}
+
+function gacp() {
+	git add .
+	git commit -a -m "lazy commit"
+	git push
+}
+
+cpl() {	cd "$@" && pwd && ls;  }
