@@ -1,120 +1,161 @@
-/* make insert box small than before */
-div.vimiumHUD {
-  width: auto;
-  left: 207px;
+/*****************************************************************************/
+/*                                   THEMES                                  */
+/*****************************************************************************/
+
+:root {
+  --font-size: 16;
+  --font-weight: normal;
+  --font-bold: bold;
+  --mono: Ubuntu Mono;
+  --sans: Ubuntu;
+  --padding: 2px;
+  --shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
+  --fg: #e95420;
+  --bg: #300a24;
+  --border: #60001c;
+  --main-fg: #aea79f;
+  --accent-fg: #772953;
 }
 
-div.vimiumHUD span#hud-find-input,
-div.vimiumHUD span#hud-match-count {
-  color: #93a1a1;
-  font-family: Myriad Pro;
+/*****************************************************************************/
+/*                                    CSS                                    */
+/*****************************************************************************/
+
+/* -------- HINTS -------- */
+#vimiumHintMarkerContainer div.internalVimiumHintMarker, #vimiumHintMarkerContainer div.vimiumHintMarker {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 3px 4px;
 }
 
-div.vimiumHUD .hud-find {
-  background: #002b36;
-  border: 1px solid #002b36;
-}
-
-#vomnibar input {
-  color: #93a1a1;
-  background-color: #073642;
-  border-color: #073642;
-  font-family: Hack;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-div.vimiumHUD .vimiumHUDSearchArea {
-  background-color: #002b36;
-}
-
-div.vimiumHUD .vimiumHUDSearchAreaInner {
-  color: #93a1a1;
-  font-family: Myriad Pro;
-}
-
-/*link hints */
-
-div > .vimiumHintMarker {
-  /* linkhint boxes */
-  background: #073642;
-  border-radius: 0;
-  border-style: solid;
-  border-width: 0 0 2px 0;
-  cursor: default;
-  padding: 1px
-}
-
-div > .vimiumHintMarker span {
-  /* linkhint text */
-  color: #859900;
-  font-weight: bold;
-  font-size: 10px;
+#vimiumHintMarkerContainer div span {
+  color: var(--main-fg);
+  font-family: var(--mono);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
   text-shadow: none;
-  font-family: Hack;
 }
 
-input#vomnibarInput.vimiumReset {
-  color: #859900 !important;
-  background-color: #dc322f !important;
+#vimiumHintMarkerContainer div > .matchingCharacter {
+  opacity: 0.3;
 }
 
+#vimiumHintMarkerContainer div > .matchingCharacter ~ span {
+  color: var(--main-fg);
+}
+
+/* -------- VOMNIBAR -------- */
 #vomnibar {
-  border-radius: 0;
-  background-color: #002b36;
+  /*animation: show 200ms cubic-bezier(0, 0, 0.2, 1) forwards;*/
+  background: var(--bg);
+  border: none;
+  box-shadow: var(--shadow);
+}
+
+/* Animate Slide in */
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#vomnibar .vomnibarSearchArea,
+#vomnibar input {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: var(--font-size);
+  font-weight: var(--font-bold);
 }
 
 #vomnibar .vomnibarSearchArea {
-  background-color: #073642;
-  border: none;
+  padding: var(--padding) 30px;
 }
 
-#vomnibar .vomnibarSearchArea > input {
-    background-color: #002b36;
-    border: none;
-    color: #93a1a1;
-    font-family: Hack;
-}
+#vomnibar input {
+  padding: var(--padding)}
 
 #vomnibar ul {
-  background-color: #002b36;
-  border-radius: 0
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  margin: 0;
+  padding: var(--padding);
 }
 
 #vomnibar li {
-    background-color: transparent;
-    border-color: #002b36;
-    border-style: solid;
-    border-width: 0;
-    margin-top: 10px;
-    transition: background-color 0.1s ease;
+  border-bottom: 1px solid var(--border);
+  padding: var(--padding);
 }
 
-#vomnibar li .vomnibarUrl {
-  color: #b58900;
-  font-family: Hack;
-  font-weight: Bold;
-  font-size: 12px;
+#vomnibar li .vomnibarTopHalf,
+#vomnibar li .vomnibarBottomHalf {
+  padding: var(--padding) 0;
 }
 
-#vomnibar li .vomnibarMatch {
-  color: #cb4b16;
-  font-family: Hack;
-}
-
-#vomnibar li.vomnibarSelected {
-  background-color: #073642;
-}
-
-#vomnibar li em .vomnibarMatch,
-#vomnibar li .vomnibarTitle .vomnibarMatch {
-  color: #859900;
-  font-weight: normal;
-  font-family: Myriad Pro;
+#vomnibar li .vomnibarSource {
+  color: var(--accent-fg);
+  font-family: var(--sans);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
 }
 
 #vomnibar li em,
 #vomnibar li .vomnibarTitle {
-  color: #93a1a1;
-  font-family: Myriad Pro;
+  color: var(--main-fg);
+  font-family: var(--sans);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+}
+
+#vomnibar li .vomnibarUrl {
+  color: var(--main-fg);
+  font-family: var(--mono);
+  font-size: var(--font-size);
+  font-weight: var(--font-bold);
+}
+
+#vomnibar li .vomnibarMatch {
+  color: var(--main-fg);
+  font-weight: var(--font-bold);
+}
+
+#vomnibar li .vomnibarTitle .vomnibarMatch {
+  color: var(--fg);
+}
+
+#vomnibar li.vomnibarSelected {
+  background-color: var(--border);
+}
+
+/* -------- HUD -------- */
+div.vimiumHUD {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+div.vimiumHUD span#hud-find-input,
+div.vimiumHUD .vimiumHUDSearchAreaInner {
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+}
+
+div.vimiumHUD .hud-find {
+  background-color: transparent;
+  border: none;
+}
+
+div.vimiumHUD .vimiumHUDSearchArea {
+  background-color: transparent;
 }
