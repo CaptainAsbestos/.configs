@@ -1,0 +1,143 @@
+* {
+	base03:   rgba ( 40,  40,   40,   90 % );
+	base02:   rgba ( 121, 116,  14,   90 % );
+	base01:   rgba ( 88,  110,  117,  90 % );
+	base00:   rgba ( 101, 123,  131,  90 % );
+	base0:    rgba ( 131, 148,  150,  90 % );
+	base1:    rgba ( 147, 161,  161,  90 % );
+	base2:    rgba ( 238, 232,  213,  90 % );
+	base3:    rgba ( 253, 246,  227,  90 % );
+	yellow:   rgba ( 152, 151,  26,   100 % );
+	orange:   rgba ( 203, 75,   22,   100 % );
+	red:      rgba ( 175, 58,   3,   100 % );
+	magenta:  rgba ( 181, 118,  20,  100 % );
+	violet:   rgba ( 108, 113,  196,  100 % );
+	blue:     rgba ( 38,  139,  210,  100 % );
+	cyan:     rgba ( 42,  161,  152,  100 % );
+	green:    rgba ( 133, 153,  0,    100 % );
+	clear:    rgba ( 0,   0,    0,    0   % );
+
+	background-color:            @clear;
+	alternate-active-foreground: @base1;
+	alternate-active-background: @magenta;
+	active-foreground:           @yellow;
+	active-background:           @cyan;
+	selected-active-foreground:  @base03;
+	selected-active-background:  @yellow;
+	selected-urgent-background:  @red;
+	selected-urgent-foreground:  @base03;
+	
+	alternate-urgent-background: @magenta;
+	alternate-urgent-foreground: @base03;
+}
+window {
+    background-color: @base03;
+    border:           0;
+    padding:          5;
+}
+mainbox {
+    border:  0;
+    padding: 0;
+}
+message {
+    border:       1px dash 0px 0px ;
+    border-color: @green;
+    padding:      1px ;
+}
+textbox {
+    text-color: @green;
+}
+listview {
+    fixed-height: 0;
+    border:       0px dash 0px 0px ;
+    border-color: @clear;
+    spacing:      0px ;
+    scrollbar:    true;
+    padding:      2px 0px 0px ;
+}
+element {
+    border:  0;
+    padding: 1px ;
+}
+element.normal.normal {
+    background-color: @clear;
+    text-color:       @green;
+}
+element.normal.urgent {
+    background-color: @red;
+    text-color:       @base03;
+}
+element.normal.active {
+    background-color: @base02;
+    text-color:       @base03;
+}
+element.selected.normal {
+    background-color: @green;
+    text-color:       @base03;
+}
+element.selected.urgent {
+    background-color: @selected-urgent-background;
+    text-color:       @selected-urgent-foreground;
+}
+element.selected.active {
+    background-color: @selected-active-background;
+    text-color:       @selected-active-foreground;
+}
+element.alternate.normal {
+    background-color: @clear;
+    text-color:       @green;
+}
+element.alternate.urgent {
+    background-color: @alternate-urgent-background;
+    text-color:       @alternate-urgent-foreground;
+}
+element.alternate.active {
+    background-color: @green;
+    text-color:       @base03;
+}
+scrollbar {
+    width:        4px ;
+    border:       0;
+    handle-width: 0px ;
+    padding:      0;
+    handle-color: @cyan;
+    background-color: @orange;
+    border-color: @red;
+}
+mode-switcher {
+    border:       2px dash 0px 0px ;
+    border-color: @clear;
+}
+button.selected {
+    background-color: @green;
+    text-color:       @base03;
+}
+button {
+  color: @green;
+}
+inputbar {
+    spacing:    0;
+    text-color: @normal-foreground;
+    padding:    1px ;
+}
+case-indicator {
+    spacing:    0;
+    text-color: @normal-foreground;
+}
+entry {
+    spacing:    0;
+    text-color: @green;
+}
+prompt {
+    spacing:    0;
+    text-color: @green;
+}
+inputbar {
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+textbox-prompt-colon {
+    expand:     false;
+    str:        ":";
+    margin:     0px 0.3em 0em 0em ;
+    text-color: @green;
+}
