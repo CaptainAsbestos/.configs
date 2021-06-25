@@ -19,6 +19,8 @@ nnoremap ! :!
 "inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
 
+inoremap <Up> <Esc>gkzza
+inoremap <Down> <Esc>gjzza
 
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
@@ -82,6 +84,11 @@ set autochdir
 set scrolloff=999
 set wildignorecase
 set ignorecase
+set shellcmdflag=-ic
+set wildmenu
+set wildmode=longest:full,full
+        :hi StatusLine ctermbg=11 ctermfg=0
+        :hi WildMenu cterm=bold ctermbg=0 ctermfg=2
 
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[0 q"
@@ -90,5 +97,3 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 	let NERDTreeQuitOnOpen = 1
 	let NERDTreeMapActivateNode='<space>'
-
-
