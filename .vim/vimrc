@@ -59,6 +59,8 @@ call plug#begin()
 		let g:airline#extensions#tabline#enabled = 1
 		let g:airline_detect_spell = 0
 	Plug 'kblin/vim-fountain'
+        Plug 'morhetz/gruvbox'
+        Plug 'francoiscabrol/ranger.vim'
 call plug#end()
 
 source /home/alex/.vim/plugged/vim-colorschemes/colors/solarized.vim
