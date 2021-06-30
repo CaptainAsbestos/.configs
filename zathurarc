@@ -20,35 +20,35 @@ set guioptions "hvs"
 # solarized dark
 
 set font "hack 10"
-set default-bg "#002b36" #00
-set default-fg "#586e75" #01
+set default-bg "#002b3600" #00
+set default-fg "#665c54" #01
 
-set statusbar-bg "#073642" #04
-set statusbar-fg "#93a1a1" #01
+set statusbar-bg "#1d2021" #04
+set statusbar-fg "#bdae93" #01
 set statusbar-h-padding 20
 set statusbar-v-padding 10
 
-set inputbar-bg "#073642" #00 currently not used
-set inputbar-fg "#859900" #02
+set inputbar-bg "#32302f" #00 currently not used
+set inputbar-fg "#98971a" #02
 
-set notification-error-bg "#cb4b16" #08
-set notification-error-fg "#002b36" #00
+set notification-error-bg "#d65d0e" #08
+set notification-error-fg "#282828" #00
 
-set notification-warning-bg "#dc322f" #08
-set notification-warning-fg "#002b36" #00
+set notification-warning-bg "#cc241d" #08
+set notification-warning-fg "#282828" #00
 
-set highlight-color "#b58900" #0A
-set highlight-active-color "#2aa198" #0D
+set highlight-color "#d79921" #0A
+set highlight-active-color "#689d6a" #0D
 set highlight-transparency 0.33
 
-set completion-highlight-fg "#002b36" #02
-set completion-highlight-bg "#268bd2" #0C
+set completion-highlight-fg "#282828" #02
+set completion-highlight-bg "#458588" #0C
 
-set completion-bg "#002b36" #02
-set completion-fg "#839496" #0C
+set completion-bg "#282828" #02
+set completion-fg "#bdae93" #0C
 
-set notification-bg "#b58900" #0B
-set notification-fg "#002b36" #00
+set notification-bg "#d79921" #0B
+set notification-fg "#282828" #00
 
 ##set tabbar-bg "#002b36"
 ##set tabbar-fg "#586e75"
@@ -60,12 +60,14 @@ set page-cache-size 15
 #set pages-per-row 2
 
 set render-loading 1
-set render-loading-bg "#073642"
-set render-loading-fg "#268bd2"
+set render-loading-bg "#32302f"
+set render-loading-fg "#458588"
 
 set recolor "true"
-set recolor-lightcolor "#eee8d5" #00
-set recolor-darkcolor "#586e75" #06
+set recolor-lightcolor "#32302f" #00
+#set recolor-lightcolor "#eee8d5" #00
+set recolor-darkcolor "#ebdbb2" #06
+#set recolor-darkcolor "#586e75" #06
 set recolor-reverse-video "true"
 set recolor-keephue "true"
 
@@ -81,8 +83,15 @@ map j scroll left
 map k scroll down
 map l scroll up
 map ; scroll right
+map h focus_inputbar ":"
+
+map K scroll full-down
+map L scroll full-up
 
 map [fullscreen] j scroll left
 map [fullscreen] k scroll down
 map [fullscreen] l scroll up
 map [fullscreen] ; scroll right
+map [fullscreen] h focus_inputbar ":"
+
+
