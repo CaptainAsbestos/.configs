@@ -1,0 +1,93 @@
+## Alex Stuff
+
+export EDITOR=micro
+
+export PATH=/home/alex/.config/rofi/bin/:$PATH
+export PATH=/home/alex/gitshit/Wonderdraft-1.1.4.2-Linux64:$PATH
+
+#powerline-daemon -q
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+#. /usr/share/powerline/bindings/bash/powerline.sh
+
+## Custom Bash Prompt
+PS1="\n\033[0;32m\][\u]\033[0;33m\]  \w/ \n\[\033[0;32m\]\[\033[0;32m\] ╰───── \[\033[0m\]"
+
+
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+
+alias lsa='exa --icons -a --group-directories-first -F '
+alias ls='exa --icons --group-directories-first -F '
+alias edit='micro '
+alias trsh='mv --force -t ~/.local/share/Trash/files '
+alias mnt='sudo mount /dev/sda3 /mnt/mediahdd/ '
+alias umnt='sudo umount /dev/sda3 --lazy '
+alias aur='pamac build '
+alias pac='sudo pacman -S'
+alias pacinstall="pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro sudo pacman -S "
+#alias aursearch="pamac -Slq | fzf --multi --preview 'pamac -Si {1}' | xargs -ro pamac -S "
+alias pacremove="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}' | xargs -ro sudo pacman -Rns "
+#alias aurremove="pamac -Qq | fzf --multi --preview 'pamac -Qi {1}' | xargs -ro pamac -Rns "
+alias sudo='sudo -i '
+alias grep='grep --color=auto '
+alias egrep='egrep --color=auto '
+alias fgrep='fgrep --color=auto '
+alias rm='rm -I --preserve-root '
+alias mv='mv -i '
+alias cp='cp -i '
+alias ln='ln -i '
+alias chown='chown --preserve-root '
+alias chmod='chmod --preserve-root '
+alias chgrp='chgrp --preserve-root '
+alias open='nautilus . & '
+alias term='konsole . & '
+alias ytarip='youtube-dl --extract-audio --audio-quality 0 --audio-format mp3 '
+alias ytcookie='youtube-dl --cookies /home/alex/gitshit/youtube.com_cookies.txt '
+#source /home/alex/.config/broot/launcher/bash/br
+alias rngr='source ranger '
+alias back='cd - && pwd && ls '
+alias ..='cpl .. '
+alias 2.='cpl ../.. '
+alias 3.='cpl ../../.. '
+alias reload='source ~/.bashrc '
+#alias google='echo "" | rofi -dmenu -p "Search:" | xargs -I{} xdg-open https://www.google.de/search?q={}'
+alias tuir='tuir --enable-media '
+#alias spt='spotifyd && spt '
+cpl() { cd "$@" && pwd && ls; }
+#alias msc='ncmpcpp '
+#alias f='cpl "$@" | fzf '
+alias gotop='gotop -c solarized '
+alias ytv='youtube-viewer '
+alias zpdf='nohup zathura & exit '
+alias slideshow='\ls *.jpg *.png | mpv -fs -shuffle --image-display-duration=7 --playlist=- & '
+alias rddt='tuir --enable-media '
+alias darkmode='konsoleprofile ColorScheme=Solarized'
+alias litemode='konsoleprofile ColorScheme=SolarizedLight'
+alias symlink='ln -s '
+alias out2xclip='xclip -selection c '
+
+function gacp() {
+	git add .
+	git commit -a -m "lazy commit"
+	git push
+}
+
+
+PATH="/home/alex/.google-drive-upload/bin:${PATH}"
+
+PATH="/usr/bin/node:/home/alex/.gdrive-downloader:${PATH}"
+
+## Fuzzy finder
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
