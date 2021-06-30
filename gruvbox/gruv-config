@@ -1,0 +1,344 @@
+;; Polybar Config
+
+[colors]
+  background =      #282828
+  background-alt =  #32302f
+  clear =           #00000000
+  foreground-alt =  #ebdbb2
+  foreground =      #ebdbb2
+  foreground-dim =  #bdae93
+  magenta =         #23869b
+  red =             #cc241d
+  orange =          #d65d0e
+  yellow =          #d79921
+  green =           #98971a
+  cyan =            #689d6a
+  blue =            #458588
+  violet =          #8f3f71
+  transparent-bg =  #cc282828
+[global/wm]
+  margin-top = 5
+  margin-bottom = 5
+[settings]
+  screenchange-reload = true
+
+;; bars
+[bar/right43]
+  inherit= bar/main
+  monitor = ${env:MONITOR:HDMI-A-0}
+  tray-padding =
+  ;tray-position = right
+  ;tray-background = ${colors.clear}
+  modules-left = 
+  modules-center = i3 bspwm
+  modules-right =
+  bottom = false
+  background = ${colors.clear}
+  radius = 0.0
+[bar/left169]
+  monitor = ${env:MONITOR:DisplayPort-2}
+  inherit = bar/main
+  modules-left = eth vpn mem cpu
+  modules-center = i3 bspwm
+  modules-right = pulse mic xkeyboard date
+  bottom = false
+  background = ${colors.clear}
+  radius = 0.0
+[bar/tray]
+  monitor = ${env:MONITOR:DisplayPort-2}
+  inherit= bar/main
+  background = ${colors.transparent-bg}
+  bottom = true
+  modules-left = bottom-xwindow
+  modules-center =
+  modules-right = mpd
+  tray-position = center
+  tray-background = ${self.background}
+  radius = 5.0
+[bar/manjobook]
+  inherit = bar/main
+  modules-left = wlan vpn cpu battery
+  modules-center = i3 bspwm
+  modules-right = pulse mic xkeyboard date
+  bottom = false
+  tray-position = right
+  tray-padding = 0
+  tray-background = ${colors.clear}
+[bar/main]
+  width = 100%
+  height = 30
+  ;offset-x = 1%
+  ;offset-y = 1%
+  fixed-center = true
+  foreground = ${colors.foreground}
+  line-size = 3
+  line-color = ${colors.foreground-dim}
+  border-size = 4
+  border-color = ${colors.clear}
+  padding-left = 3
+  padding-right = 3
+  module-margin-left = 1
+  module-margin-right = 1
+
+  font-0 = fixed:pixelsize=10;1
+  font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+  font-2 = MaterialIcons-Regular:pixelsize=10;1
+  font-3 = alexglyphs:style=Regular:pixelsize=10:antialias=true;0
+  font-6 = alexglyphs:style=Regular:pixelsize=10:antialias=true;1
+  font-7 = alexglyphs:style=Regular:pixelsize=10:antialias=true;-1
+  font-4 = Myriad Pro:style=Bold:pixelsize=11;antialias=true;0
+  font-5 = Myriad Pro Cond:style=Condensed:pixelsize=12;antialias=true;1
+  font-8 = Hack:style=Bold:pixelsize=10;antialias=true;0
+  font-9 = alexglyphs2:style=Regular:pixelsize=10:antialias=true;-1
+
+  cursor-click = pointer
+  cursor-scroll = ns-resize
+
+;; modules
+[module/battery]
+  type = internal/battery
+  battery = BAT0
+  adapter = ADP1
+  full-at = 98
+
+  format-charging = %{A1:exec /home/alexh/.config/rofi/applets/menu/powermenu.sh:} <label-charging>%{A-}
+  format-charging-foreground = ${colors.orange}
+  label-charging-font = 3
+  label-charging-foreground = ${colors.orange}
+
+  format-discharging =%{A1:exec /home/alexh/.config/rofi/applets/menu/powermenu.sh:} <ramp-capacity> <label-discharging> %{A-}
+  label-discharging-font = 3
+
+  format-full-prefix = " "
+  format-full-prefix-foreground = ${colors.green}
+  label-full-font = 3
+  label-full-foreground = ${colors.green}
+
+  ramp-capacity-0 = 
+  ramp-capacity-1 = 
+  ramp-capacity-2 = 
+  ramp-capacity-3 = 
+  ramp-capacity-4 = 
+  ramp-capacity-foreground = ${colors.foreground}
+  ramp-capacity-0-foreground = ${colors.red}
+  ramp-capacity-1-foreground = ${colors.yellow}
+
+  labels-warn = low
+  format-warn-foreground = ${colors.orange}
+[module/cpu]
+  type = internal/cpu
+  interval = 2
+  format = <label>
+  format-prefix = "%{A3:exec ksysguard:}%{A1:exec konsole -e gotop -l minimal -c solarized:} %{A}%{A}"
+  format-prefix-foreground = ${colors.foreground}
+  label = %{A1:exec konsole -e gotop -l minimal -c solarized:}%percentage:2%%%{A}
+  label-font = 6
+[module/date]
+  type = internal/date
+  interval = 5
+
+  format = %{A2:konsole -e calcurse:}<label>%{A}
+
+  date =
+  date-alt = "%a  %e %b, %Y"
+
+  time = %H:%M
+  time-alt = %H:%M
+  label = %date% %time%
+  label-font = 6
+[module/eth]
+  type = internal/network
+  interface = enp5s0
+  interval = 3.0
+
+  format-connected = %{A3:exec konsole -e nmtui:}<ramp-signal>%{A}
+  label-connected =
+  label-connected-font = 6
+
+  format-disconnected = <label-disconnected>
+  label-disconnected = %ifname% disconnected
+  label-disconnected-foreground = ${colors.red}
+  label-disconnected-font = 6
+
+  ramp-signal-0 = 
+  ramp-signal-1 = 
+  ramp-signal-2 = 
+  ramp-signal-3 = 
+  ramp-signal-4 = 
+  ramp-signal-5 = 
+
+  ramp-signal-5-foreground = ${colors.red}
+  ramp-signal-4-foreground = ${colors.orange}
+  ramp-signal-3-foreground = ${colors.yellow}
+  ramp-signal-2-foreground = ${colors.green}
+  ramp-signal-1-foreground = ${colors.green}
+  ramp-signal-0-foreground = ${colors.green}
+[module/i3]
+  type = internal/i3
+  format = <label-state> <label-mode>
+  index-sort = true
+  wrapping-scroll = false
+  strip-wsnumbers = true
+
+  ; Only show workspaces on the same output as the bar
+  pin-workspaces = true
+
+  ; label = resize mode
+  label-mode-padding = 2
+  label-mode-foreground = ${colors.background}
+  label-mode-background = #afd79921
+  label-mode-font = 6
+
+  ; focused = Active workspace on focused monitor
+  label-focused = %index%
+  label-focused-foreground = #b8bb26
+  label-focused-background = #b079740e
+  label-focused-underline = #98971a
+  label-focused-padding = 2
+  label-focused-font = 5
+
+  ; unfocused = Inactive workspace on any monitor
+  label-unfocused = %index%
+  label-unfocused-padding = 2
+  label-unfocused-font = 5
+  label-unfocused-foreground = ${colors.foreground}
+
+  ; visible = Active workspace on unfocused monitor
+  label-visible = %index%
+  label-visible-underline = #b8bb26
+  label-visible-foreground = ${colors.foreground}
+  label-visible-background = ${colors.clear}
+  label-visible-padding = ${self.label-focused-padding}
+  label-visible-font = 5
+
+  ; urgent = Workspace with urgency hint set
+  label-urgent = %index%
+  label-urgent-background = #afb58900
+  label-urgent-foreground = ${colors.background}
+  label-urgent-padding = 2
+  label-urgent-font = 5
+
+  ; Separator in between workspaces
+  ; label-separator = |
+[module/mem]
+  type = internal/memory
+  interval = 2
+  format-prefix = "%{A3:exec ksysguard:}%{A1:exec konsole -e gotop -c solarized:}%{A}%{A} "
+  format-prefix-foreground = ${colors.foreground}
+  label = %{A1:exec konsole -e gotop -c solarized:}%percentage_used%%%{A}
+  label-font = 6
+[module/mic]
+  type = custom/script
+  exec = bash /home/alex/.config/polybar/polybar-scripts/pulseaudio-microphone.sh
+  tail = true
+  format-font = 6
+  label-1 = %output%
+  label-foreground = ${colors.foreground}
+[module/mpd]
+  type = internal/mpd
+  format-online = %{A1:mpc toggle:}%{A4:mpc volume +2:}%{A5:mpc volume -2:}%{A6:mpc seek -5:}%{A8:mpc seek +5:}%{A3:konsole -e ncmpcpp:}<label-song>%{A}%{A}%{A}%{A}%{A}%{A} <icon-random> <icon-repeatone> <icon-repeat>
+  format-online-prefix-foreground = ${colors.violet}
+  format-online-prefix = %{A1:mpc toggle:}%{A4:mpc volume +2:}%{A5:mpc volume -2:}%{A6:mpc seek -5:}%{A8:mpc seek +5:}%{A3:konsole -e ncmpcpp:} %{A}%{A}%{A}%{A}%{A}%{A}
+
+  format-paused = %{A1:mpc toggle:}%{A4:mpc volume +2:}%{A5:mpc volume -2:}%{A6:mpc seek -5:}%{A8:mpc seek +5:}%{A3:konsole -e ncmpcpp:}%{F#b58900}<label-song>%{F-}%{A}%{A}%{A}%{A}%{A}%{A} <icon-random> <icon-repeatone> <icon-repeat>
+
+  format-online-foreground = ${colors.foreground}
+  format-offline = %{A1:mpd:}<label-offline>%{A}
+  label-offline = offline
+  label-offline-foreground = ${colors.orange}
+  format-online-font = 9
+
+  icon-random = 
+  toggle-on-foreground = ${colors.magenta}
+  toggle-off-foreground = ${colors.foreground-dim}
+  icon-repeat = 
+  icon-repeatone = 
+  icon-prev = 
+  icon-stop = 
+  icon-play = 
+  ;icon-pause =  ⏸
+  icon-pause = ⏸
+  icon-next = 
+
+  label-song-maxlen = 25
+  label-song = %artist% – %title%
+  label-song-ellipsis = true
+  label-song-font = 6
+[module/pulse]
+  type = internal/pulseaudio
+
+  format-volume = %{A3:pavucontrol:}%{A2:pulseaudio-equalizer-gtk:}%{A5:pactl set-sink-volume @DEFAULT_SINK@ -5%:}%{A4:pactl set-sink-volume @DEFAULT_SINK@ +5%:}<ramp-volume> <label-volume>%{A}%{A}%{A}%{A}
+  label-volume = %percentage%%
+  label-volume-foreground = ${colors.foreground}
+  label-volume-font = 6
+
+  label-muted =   %percentage%%
+  label-muted-foreground = ${colors.yellow}
+  label-muted-font = 6
+
+  ramp-volume-0 = 
+  ramp-volume-1 = 
+  ramp-volume-1-font = 2
+[module/wlan]
+  type = internal/network
+  interface = wlp3s0b1
+  interval = 3.0
+
+  format-connected = %{A1:urxvt -e nmtui:}<ramp-signal> <label-connected>%{A}
+  label-connected = %essid%
+  label-connected-font = 3
+
+  format-disconnected-foreground = ${colors.red}
+  format-disconnected = %{A1:urxvt -e nmtui:}  <label-disconnected>%{A}
+  label-disconnected = %downspeed%
+  label-disconnected-foreground = ${colors.red}
+  label-disconnected-font = 3
+
+  ramp-signal-0 = 
+  ramp-signal-1 = 
+  ramp-signal-2 = 
+  ramp-signal-3 = 
+  ramp-signal-4 = 
+  ramp-signal-0-foreground = ${colors.red}
+  ramp-signal-1-foreground = ${colors.orange}
+  ramp-signal-2-foreground = {colors.yellow}
+  ramp-signal-font = 3
+[module/xwindow]
+  type = internal/xwindow
+  label = %title:0:30:...%
+  format-background = ${colors.clear}
+  format-foreground = ${colors.foreground}
+  format-padding = 0
+  label-empty = ManjoNVMe
+  label-font = 6
+  label-empty-font = 6
+[module/bottom-xwindow]
+  type = internal/xwindow
+  label = %title:0:30:...%
+  format-background = ${leftbottom.background}
+  format-foreground = ${colors.foreground}
+  format-padding = 0
+  label-empty = ManjoNVMe
+  label-font = 6
+  label-empty-font = 6
+[module/xkeyboard]
+  type = internal/xkeyboard
+  blacklist-0 = num lock
+
+  format-prefix = " "
+  format-prefix-foreground = ${colors.foreground}
+  format-prefix-font = 7
+
+  label-layout = %layout%
+  label-layout-font = 6
+
+  label-indicator-padding = 0
+  label-indicator-margin = 1
+  label-indicator-on-capslock = caps
+  label-indicator-on-capslock-foreground = ${colors.yellow}
+  label-indicator-on-capslock-font = 6
+[module/vpn]
+  type = custom/script
+  exec = ~/gitshit/vpn-status.sh
+  interval = 5
+  format-font = 6
